@@ -1,0 +1,57 @@
+<?php
+// $Id$
+
+/**
+ * Implementation of hook_enable().
+ */
+function newsletter_enable() {
+  _newsletter_install_nodetype();
+  _newsletter_install_cck();
+}
+
+/**
+ * Helper function to add the newsletter nodetype.
+ */
+function _newsletter_install_nodetype() {
+  $info = new stdClass();
+  $info->type = 'newsletter';
+  $info->name = 'Newsletter Issue';
+  $info->module = 'node';
+
+  $info->has_title = TRUE;
+  $info->title_label = 'Campaign Title';
+  $info->has_body = FALSE;
+
+  $info->description = 'A e-newsletter campaign';
+  $info->custom = TRUE;
+  $info->modified = TRUE;
+
+  $result = node_type_save($info);
+  node_types_rebuild();
+}
+
+/**
+ * Helper function to install the cck fields.
+ */
+function _newsletter_install_cck() {
+  $field = array();
+
+  $field['field_name'] = 'field_article';
+  $field['type_name'] = 'newsletter';
+  $field['type'] = 'text';
+  $field['module'] = 'text';
+  $field['required'] = FALSE;
+  $field['widget_type'] = 'text_textarea';
+  $field['active'] = TRUE;
+  content_field_instance_create($field);
+
+  $field = content_fields('field_article', 'newsletter');
+  $field['widget']['label'] = 'Newsletter Article(s)',
+  $field['widget']['weight'] = 8;
+  $field['widget']['type'] = 'text_textarea';
+  $field['display_settings']['weight'] = 8;
+  $field['display_settings']['label']['format'] = 'hidden';
+  $field['display_settings']['teaser']['format'] = 'default';
+  $field['display_settings']['full']['format'] = 'default';
+  content_field_instance_update($field);
+}

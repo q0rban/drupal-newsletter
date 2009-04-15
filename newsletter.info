@@ -1,0 +1,5 @@
+name = Newsletter
+description = A newsletter content type and custom template
+core = 6.x
+dependencies[] = imagefield
+dependencies[] = text

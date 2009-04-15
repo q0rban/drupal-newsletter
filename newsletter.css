@@ -1,0 +1,234 @@
+	body {
+		background-color: #6e6e6e;
+		margin: 0;
+		padding: 0;
+	}
+	
+	p a {
+		color: #004d58;
+		text-decoration: none;
+	}
+	
+	td.permission {
+		padding-top: 16px;
+	}
+	
+	td.date {
+		padding: 0 0 4px 0;
+	}
+	
+	td.permission p {
+		color: #f9f5eb;
+		text-align: center;
+		font: 11px/16px HelveticaNeue, "Helvetica Neue", Helvetica, Arial, Geneva, sans-serif;
+	}
+	
+	td.permission a {
+		color: white;
+		text-decoration: underline;
+		font-weight: bold;
+	}
+	
+	table.bgTop {
+		background-color: #181818;
+	}
+	
+	table.bg {
+		background-color: #f9f5eb;
+	}
+	
+	table.header td {
+		height: 127px;
+		border-bottom: 1px solid #ddd2be;
+	}
+	
+	table.header td h1 {
+		font-family: 'Futura', Arial;
+		font-size: 24px;
+		font-weight: normal;
+		color: #9f9862;
+		display: inline;
+		margin: 0 0 0 6px;
+		padding: 0;
+		text-transform: uppercase;
+	}
+	
+	td.sidebar {
+		background-color: #eee7d5;
+		border-left: 1px solid #ddd2be;
+	}
+	
+	td.sidebar div.field-label {
+		color: #7e7869;
+		margin: 0 0 6px;
+		text-transform: uppercase;
+		font: bold 14px HelveticaNeue, "Helvetica Neue", Helvetica, Arial, Geneva, sans-serif;
+		padding-top: 18px;
+	}
+	
+	td.sidebar ul {
+		margin: 0 0 20px 24px;
+		padding: 0;
+		font-family: Georgia;
+		font-size: 12px;
+		font-weight: normal;
+		color: #313131;
+	}
+	
+	td.sidebar a {
+		font-size: 12px;
+		font-weight: normal;
+		color: #004d58;
+		text-decoration: none;
+	}
+
+	td.sidebar div.field-field-links-sidebar {
+		margin-bottom: 20px;
+	}
+	
+	td.sidebar div.field-field-links-sidebar a {
+		display: block;
+		border-bottom: 1px dotted #7e7869;
+		font-family: HelveticaNeue, "Helvetica Neue", Helvetica, Arial, Geneva, sans-serif;
+		padding-top: 6px;
+		padding-bottom: 6px;
+		line-height: 14px;
+	}
+	
+	td.sidebar p {
+		color: #313131;
+		margin: 0 0 8px;
+		padding: 0;
+		font: italic 11px/16px Georgia;
+	}
+	
+	td.sidebar p em {
+		font-weight: normal;
+		font-style: normal;
+	}
+	
+	td.sidebar img {
+		padding: 5px;
+		background-color: white;
+		width: 151px;
+		height: auto;
+		border-bottom: 1px solid #ddd2be;
+	}
+	
+	td.sidespace {
+		 padding: 20px;
+	}
+	
+	table.options {
+		border-top: 1px solid #9f9862;
+		border-bottom: 1px solid #9f9862;
+	}
+	
+	table.options td {
+		padding: 16px 22px 16px 22px;
+	}
+	
+	td.border {
+		border-bottom: 1px solid #9f9862;
+	}
+	
+	table.options h3 {
+		font-family: Georgia;
+		font-size: 16px;
+		font-weight: normal;
+		color: #9f9862;
+		margin: 0 0 4px 0;
+		padding: 0;
+	}
+	
+	table.options p {
+		font-family: Georgia;
+		font-size: 13px;
+		font-weight: normal;
+		color: #313131;
+		margin: 0;
+		padding: 0;
+	}
+	
+	table.options p a {
+		color: #313131;
+		text-decoration: none;
+		border: none;
+		margin: 0;
+		padding: 0;
+	}
+	
+	td.mainbar {
+		 
+	}
+	
+	td.mainbar h2 {
+		color: #004d58;
+		margin: 12px 0 8px;
+		padding: 12px 0 0;
+		font: bold 20px HelveticaNeue, "Helvetica Neue", Helvetica, Arial, Geneva, sans-serif;
+		border-top: 1px dotted #d4cab7;
+	}
+	
+	td.mainbar h2.intro {
+		color: #161616;
+		border-top-style: none;
+		border-top-width: 0;
+		padding-top: 0;
+	}
+	
+	td.mainbar h2 a {
+		color: #004d58;
+		 text-decoration: none;
+		font: bold 20px HelveticaNeue, "Helvetica Neue", Helvetica, Arial, Geneva, sans-serif;
+	}
+	
+	td.mainbar h3 {
+		font-family: Verdana;
+		font-size: 11px;
+		font-weight: normal;
+		color: #333333;
+		text-transform: uppercase;
+		margin: 0 0 8px 0;
+		padding: 0;
+	}
+	
+	td.mainbar p {
+		color: #686868;
+		margin: 0 0 8px;
+		padding: 0;
+		font: normal 12px/18px Georgia;
+	}
+	
+	td.mainbar p.top {
+		text-transform: uppercase;
+		width: 100%;
+		margin: 14px 0 4px 0;
+		font: normal 10px HelveticaNeue, "Helvetica Neue", Helvetica, Arial, Geneva, sans-serif;
+	}
+	
+	td.mainbar img {
+		padding: 5px;
+		background-color: #6e6e6e;
+		margin-bottom: 8px;
+	}
+	
+	table.footer {
+		color: #7e7869;
+		text-align: center;
+		background-color: #eee7d5;
+		border-top: 1px solid #ddd2be;
+		padding-top: 16px;
+		font: normal 11px/16px HelveticaNeue, "Helvetica Neue", Helvetica, Arial, Geneva, sans-serif;
+	}
+	
+	table.bottom tr td {
+		color: #f9f5eb;
+		font: 11px/16px HelveticaNeue, "Helvetica Neue", Helvetica, Arial, Geneva, sans-serif;
+		padding-bottom: 36px;
+	}
+	
+	table.bottom tr td a {
+		color: white;
+		font-weight: bold;
+	}

@@ -1,0 +1,25 @@
+<?php
+// $Id$
+
+/**
+ * @file
+ */
+
+/**
+ * Implementation of hook_help().
+ */
+function newsletter_help($path, $arg) {
+  if ($path == 'node/%' && user_access('administer newsletters') && is_numeric($arg[1]) && !$arg[2]) {
+    $type = db_result(db_query("SELECT type FROM {node} WHERE nid = %d", $arg[1]));
+    if ($type == 'newsletter') {
+      return '<p>'. t('The path to the embeddable version of this e-mail campaign is <strong>!path</strong>.', array('!path' => url('node/'. $arg[1] .'/newsletter', array('absolute' => TRUE)) . (variable_get('clean_url', 0) ? '' : '?q=')));
+    }
+  }
+}
+
+/**
+ * 
+ */
+function newsletter_perm() {
+  return array('administer newsletters');
+}

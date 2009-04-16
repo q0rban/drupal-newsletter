@@ -6,7 +6,7 @@
  */
 function newsletter_enable() {
   _newsletter_install_nodetype();
-  _newsletter_install_cck();
+  //_newsletter_install_cck();
 }
 
 /**
@@ -46,7 +46,7 @@ function _newsletter_install_cck() {
   content_field_instance_create($field);
 
   $field = content_fields('field_article', 'newsletter');
-  $field['widget']['label'] = 'Newsletter Article(s)',
+  $field['widget']['label'] = 'Newsletter Article(s)';
   $field['widget']['weight'] = 8;
   $field['widget']['type'] = 'text_textarea';
   $field['display_settings']['weight'] = 8;

@@ -6,7 +6,8 @@
  */
 function newsletter_enable() {
   _newsletter_install_nodetype();
-  _newsletter_install_cck();
+  _newsletter_install_fieldgroups();
+  //_newsletter_install_textfields();
 }
 
 /**
@@ -22,7 +23,7 @@ function _newsletter_install_nodetype() {
   $info->title_label = 'Campaign Title';
   $info->has_body = FALSE;
 
-  $info->description = 'A e-newsletter campaign';
+  $info->description = 'An e-newsletter campaign';
   $info->custom = TRUE;
   $info->modified = TRUE;
 
@@ -31,27 +32,83 @@ function _newsletter_install_nodetype() {
 }
 
 /**
- * Helper function to install the cck fields.
+ * Helper function to install the cck fieldgroups
  */
-function _newsletter_install_cck() {
-  $field = array();
+function _newsletter_install_fieldgroups() {
+  $type_name = 'newsletter';
+  // Groups, in order of display on the form.
+  $groups = array('group_header' => 'Header', 'group_content' => 'Main Content', 'group_sidebar' => 'Sidebar Content');
+  // Starting weight.
+  $weight = 7;
 
-  $field['field_name'] = 'field_article';
-  $field['type_name'] = 'newsletter';
-  $field['type'] = 'text';
-  $field['module'] = 'text';
-  $field['required'] = FALSE;
-  $field['widget_type'] = 'text_textarea';
-  $field['active'] = TRUE;
-  content_field_instance_create($field);
+  foreach ($groups as $name => $label) {
+    $group = array();
 
-  $field = content_fields('field_article', 'newsletter');
-  $field['widget']['label'] = 'Newsletter Article(s)',
-  $field['widget']['weight'] = 8;
-  $field['widget']['type'] = 'text_textarea';
-  $field['display_settings']['weight'] = 8;
-  $field['display_settings']['label']['format'] = 'hidden';
-  $field['display_settings']['teaser']['format'] = 'default';
-  $field['display_settings']['full']['format'] = 'default';
-  content_field_instance_update($field);
+    // Unique settings
+    $group['group_name'] = $name;
+    $group['label'] = $label;
+    $group['weight'] = $weight++;
+
+    // Common settings
+    $group['group_type'] = 'standard';
+    $group['settings']['form']['style'] = 'fieldset_collapsible';
+    $group['settings']['display']['teaser']['format'] = 'no_style';
+    $group['settings']['display']['teaser']['exclude'] = 1;
+    $group['settings']['display']['full']['format'] = 'no_style';
+    $group['settings']['display']['full']['exclude'] = 1;
+    $group['settings']['display']['label'] = 'hidden';
+
+    // Save the group.
+    fieldgroup_save_group($type_name, $group);
+  }
+}
+
+/**
+ * Helper function to install the cck textfields.
+ */
+function _newsletter_install_textfields() {
+  if (module_exists('text')) {
+    // Intro
+    $field = array();
+  
+    $field['field_name'] = 'field_intro';
+    $field['type_name'] = 'newsletter';
+    $field['type'] = 'text';
+    $field['module'] = 'text';
+    $field['required'] = TRUE;
+    $field['widget_type'] = 'text_textarea';
+    $field['active'] = TRUE;
+
+    $field['widget']['group'] = 'group_content'; // Doesn't work.
+    $field['widget']['label'] = 'Intro';
+    $field['widget']['weight'] = 9;
+    $field['widget']['type'] = 'text_textarea';
+    $field['display_settings']['weight'] = 9;
+    $field['display_settings']['parent'] = 'group_content'; // Doesn't work.
+    $field['display_settings']['label']['format'] = 'hidden';
+    $field['display_settings']['teaser']['format'] = 'default';
+    $field['display_settings']['full']['format'] = 'default';
+    content_field_instance_create($field);
+/*
+    $field = array();
+  
+    $field['field_name'] = 'field_article';
+    $field['type_name'] = 'newsletter';
+    $field['type'] = 'text';
+    $field['module'] = 'text';
+    $field['required'] = FALSE;
+    $field['widget_type'] = 'text_textarea';
+    $field['active'] = TRUE;
+    content_field_instance_create($field);
+  
+    $field = content_fields('field_article', 'newsletter');
+    $field['widget']['label'] = 'Newsletter Article(s)';
+    $field['widget']['weight'] = 8;
+    $field['widget']['type'] = 'text_textarea';
+    $field['display_settings']['weight'] = 8;
+    $field['display_settings']['label']['format'] = 'hidden';
+    $field['display_settings']['teaser']['format'] = 'default';
+    $field['display_settings']['full']['format'] = 'default';
+    content_field_instance_update($field);*/
+  }
 }

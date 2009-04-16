@@ -6,8 +6,12 @@
  */
 function newsletter_enable() {
   _newsletter_install_nodetype();
+<<<<<<< HEAD:newsletter.install
   _newsletter_install_fieldgroups();
   //_newsletter_install_textfields();
+=======
+  //_newsletter_install_cck();
+>>>>>>> cff2ba044bedd9c06ab3f8c4d3b5667ecc3c24fa:newsletter.install
 }
 
 /**
@@ -34,6 +38,7 @@ function _newsletter_install_nodetype() {
 /**
  * Helper function to install the cck fieldgroups
  */
+<<<<<<< HEAD:newsletter.install
 function _newsletter_install_fieldgroups() {
   $type_name = 'newsletter';
   // Groups, in order of display on the form.
